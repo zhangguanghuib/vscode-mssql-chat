@@ -2,6 +2,8 @@
 
 This is the README for your extension "vscode-mssql-chat". After writing up a brief description, we recommend including the following sections.
 
+https://www.youtube.com/watch?v=OdW2r3raAHI&t=619s
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
