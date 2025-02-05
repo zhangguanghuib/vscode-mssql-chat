@@ -1,0 +1,69 @@
+{
+  "name": "vscode-mssql-chat",
+  "displayName": "VSCODE-MSSQL-CHAT",
+  "description": "SQL expertise for Copilot Chat",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "extensionDependencies": [
+    "github.copilot-chat",
+    "ms-mssql.mssql"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "vscode-mssql-chat",
+        "name": "mssql",
+        "description": "Generate SQL queries from natural language"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "vscode-mssql-chat.summarizeDatabase",
+          "group": "mssql-chat@1",
+          "when": "view == objectExplorer && viewItem =~ /^(Server|Database)$/"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "vscode-mssql-chat.summarizeDatabase",
+        "title": "Summarize Database"
+      },
+      {
+        "command": "vscode-mssql-chat.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/mssql": "^9.1.6",
+    "mssql": "^11.0.1"
+  }
+}
